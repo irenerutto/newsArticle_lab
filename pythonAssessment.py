@@ -4,7 +4,7 @@ from collections import Counter
 with open("newsArticle.txt", "r", encoding="utf-8") as file:
     article = file.read()
 
-
+#function to count specific word
 def count_specific_word(text, search_word):
 
     words = re.findall(r"\b\w+\b", text)
@@ -18,7 +18,7 @@ def count_specific_word(text, search_word):
 
     return count
 
-
+# function to find the most common word
 def identify_most_common_word(text):
 
     if text.strip() == "":
@@ -29,6 +29,7 @@ def identify_most_common_word(text):
     word_counter = Counter(words)
 
     return word_counter.most_common(1)[0][0]
+# function to Calculate average word length
 def calculate_average_word_length(text):
 
     if text.strip() == "":
@@ -42,7 +43,7 @@ def calculate_average_word_length(text):
         total_letters += len(word)
 
     return total_letters / len(words)
-
+# function to Count paragraphs
 def count_paragraphs(text):
 
     if text.strip() == "":
@@ -53,17 +54,29 @@ def count_paragraphs(text):
     paragraphs = [p for p in paragraphs if p.strip()]
 
     return len(paragraphs)
+# function to Count sentences
 def count_sentences(text):
 
     if text.strip() == "":
         return 1
+    else:
+        sentences = re.findall(r"[.!?]+", text)
 
-    sentences = re.findall(r"[.!?]+", text)
+        if len(sentences) == 0:
+            return 1
+        else:
+            return len(sentences)
 
-    return len(sentences)
 
+search_word = ""
 
-search_word = "apple"
+while search_word == "":
+    search_word = input("Enter a word to search for: ").strip()
+
+    if search_word == "":
+        print("Please enter a word.")
+    else:
+        break
 
 result = count_specific_word(article, search_word)
 print("Word count:", result)
