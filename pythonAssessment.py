@@ -66,28 +66,28 @@ def count_sentences(text):
             return 1
         else:
             return len(sentences)
+        
+if __name__ == "__main__":
 
+    search_word = ""
 
-search_word = ""
+    while search_word == "":
+        search_word = input("Enter a word to search for: ").strip()
 
-while search_word == "":
-    search_word = input("Enter a word to search for: ").strip()
+        if search_word == "":
+            print("Please enter a word.")
 
-    if search_word == "":
-        print("Please enter a word.")
-    else:
-        break
+    result = count_specific_word(article, search_word)
+    print("Word count:", result)
 
-result = count_specific_word(article, search_word)
-print("Word count:", result)
+    most_common = identify_most_common_word(article)
+    print("Most common word:", most_common)
 
-most_common = identify_most_common_word(article)
-print("Most common word:", most_common)
+    average_length = calculate_average_word_length(article)
+    print("Average word length:", average_length)
 
-average_length = calculate_average_word_length(article)
-print("Average word length:", average_length)
-paragraphs = count_paragraphs(article)
-sentences = count_sentences(article)
+    paragraphs = count_paragraphs(article)
+    sentences = count_sentences(article)
 
-print("Sentences:", sentences)
-print("Paragraphs:", paragraphs)
+    print("Sentences:", sentences)
+    print("Paragraphs:", paragraphs)
