@@ -29,9 +29,10 @@ The application can:
 
 ```text
 .
+├── .gitignore
 ├── pythonAssessment.py      # Main application
 ├── newsArticle.txt          # News article to analyze
-├── test_pythonAssessment.py # Unit tests (optional)
+├── test_pythonAssessment.py # Unit tests
 └── README.md                # Project documentation
 ```
 
@@ -55,6 +56,14 @@ Move into the project folder:
 
 ```bash
 cd <project-folder>
+```
+
+### Create a Virtual Environment (Recommended)
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install pytest
 ```
 
 ---
@@ -92,13 +101,13 @@ Paragraphs: 19
 
 ## 🧪 Running the Tests
 
-If you have Pytest installed, run:
+Run the unit tests with:
 
 ```bash
-pytest
+pytest -v
 ```
 
-All tests should pass if the program is functioning correctly.
+This runs the unit tests for the `count_specific_word()` and `identify_most_common_word()` functions.
 
 ---
 
@@ -125,5 +134,3 @@ This project was created for educational purposes as part of a Python programmin
 ## 👩‍💻 Author
 
 **Irene**
-
-
